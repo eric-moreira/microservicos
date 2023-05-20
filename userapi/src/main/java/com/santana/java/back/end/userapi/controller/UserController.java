@@ -1,6 +1,7 @@
 package com.santana.java.back.end.userapi.controller;
 
 import java.util.List;
+import org.springframework.http.HttpStatus;
 
 import com.santana.java.back.end.userapi.dto.UserDTO;
 import com.santana.java.back.end.userapi.service.UserService;
@@ -11,12 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/user/")
+    @GetMapping("/user")
     public List<UserDTO> getUsers(){
         List<UserDTO> usuarios = userService.getAll();
         return usuarios;
@@ -28,6 +30,7 @@ public class UserController {
     }
 
     @PostMapping("/user")
+    @ResponseStatus(HttpStatus.CREATED)
     UserDTO newUser(@RequestBody UserDTO userDTO){
         return userService.save(userDTO);
     }

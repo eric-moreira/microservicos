@@ -1,67 +1,21 @@
 package com.santana.java.back.end.userapi.dto;
 
 import com.santana.java.back.end.userapi.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class UserDTO {
     private String nome;
     private String cpf;
     private String endereco;
     private String email;
     private String telefone;
-    private Date dataCadastro;
-
-    //getters e setters
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public Date getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
+    private LocalDateTime dataCadastro;
 
     public static UserDTO convert(User user){
         UserDTO userDTO = new UserDTO();
